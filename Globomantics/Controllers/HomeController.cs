@@ -8,39 +8,33 @@ using Globomantics.Models;
 using Globomantics.Services;
 using Globomantics.Core.Models;
 
-namespace Globomantics.Controllers
-{
-    public class HomeController : Controller
-    {
+namespace Globomantics.Controllers {
+    public class HomeController : Controller {
         private IRateService rateService;
 
-        public HomeController(IRateService rateService)
-        {
+        public HomeController(IRateService rateService) {
             this.rateService = rateService;
         }
 
-        public IActionResult Index()
-        {
-            return View();
+        public IActionResult Index() {
+           return View();
         }
 
-        public IActionResult About()
-        {
+        public IActionResult About() {
             ViewData["Message"] = "Your application description page.";
 
             return View();
         }
 
-        public IActionResult Contact()
-        {
+        public IActionResult Contact() {
             ViewData["Message"] = "Your contact page.";
 
             return View();
         }
 
-        public IActionResult Error()
-        {
+        public IActionResult Error() {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
+

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Globomantics.Models;
 using Globomantics.Services;
 using Microsoft.Extensions.Logging;
+using Globomantics.Filters;
 
 namespace Globomantics.Controllers
 {
+    [ModelValidationFilter]
     public class AutoController : Controller
     {
         private ILogger<AutoController> logger;

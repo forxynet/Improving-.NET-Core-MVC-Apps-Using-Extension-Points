@@ -20,10 +20,10 @@ namespace Globomantics.Components
         public IViewComponentResult Invoke(string title, string subtitle)
         {
             var ratesVM = new CreditCardWidgetVM()
-            {
-                Rates = rateService.GetCreditCardRates(),
+            {                
                 WidgetTitle = title,
-                WidgetSubTitle = subtitle
+                WidgetSubTitle = subtitle,
+                Rates = rateService.GetCreditCardRates()
             };
 
             return View(ratesVM);
