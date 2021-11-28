@@ -17,13 +17,14 @@ namespace Globomantics.Components
             this.rateService = rateService;
         }
 
-        public IViewComponentResult Invoke(string title, string subtitle)
+        public async Task<IViewComponentResult> InvokeAsync(
+            string title, string subtitle)
         {
             var ratesVM = new CreditCardWidgetVM()
-            {                
+            {
+                Rates = rateService.GetCreditCardRates(),
                 WidgetTitle = title,
-                WidgetSubTitle = subtitle,
-                Rates = rateService.GetCreditCardRates()
+                WidgetSubTitle = subtitle
             };
 
             return View(ratesVM);

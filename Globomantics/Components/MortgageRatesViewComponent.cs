@@ -16,7 +16,7 @@ namespace Globomantics.Components
             this.rateService = rateService;
         }
 
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var rates = rateService.GetMortgageRates();
 

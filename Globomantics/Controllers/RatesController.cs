@@ -11,7 +11,7 @@ using Globomantics.Filters;
 namespace Globomantics.Controllers
 {
     [Route("api/[controller]")]
-    //[RateExceptionFilter]
+    [RateExceptionFilter]
     public class RatesController : Controller
     {
         private IRateService rateService;
