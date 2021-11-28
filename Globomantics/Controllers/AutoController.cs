@@ -7,11 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Globomantics.Models;
 using Globomantics.Services;
 using Microsoft.Extensions.Logging;
-using Globomantics.Filters;
 
 namespace Globomantics.Controllers
 {
-    [ModelValidationFilter]
+    
     public class AutoController : Controller
     {
         private ILogger<AutoController> logger;
@@ -36,16 +35,8 @@ namespace Globomantics.Controllers
         [HttpPost]
         public IActionResult Quote(AutoQuote quote)
         {
-            if (ModelState.IsValid)
-            {
-                quoteService.GenerateAutoQuote(quote);
-                return RedirectToAction("Index", "Insurance");
-            }
-            else
-            {
-                logger.LogInformation("Bad model", quote);
-                return View(quote);
-            }
+            quoteService.GenerateAutoQuote(quote);
+            return RedirectToAction("Confirmation", "Insurance");
         }
 
         [HttpGet]
